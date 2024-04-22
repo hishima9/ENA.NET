@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Page Principale</title>
+<link rel="stylesheet" href="style.css">
+<script src="main.js"></script>
+</head>
+<body>
+    <h1>Bienvenue sur la page principale</h1>
+    <p>Veuillez choisir le formulaire à remplir:</p>
+
+    <button onclick="goToForm('intervention')">Remplir la Demande d'Intervention</button>
+    <button onclick="goToForm('acquisition')">Remplir la Demande d'Acquisition</button>
+    <button id="historiquebutton">Historique</button>
+</body>
+<script>
+     document.getElementById("historiquebutton").onclick = function(){
+        location.href = 'historique.html' ;
+    }
+function goToForm(formType) {
+   
+    if(formType === 'intervention') {
+        window.location.href = 'demande_intervention.html'; // The file name of your Demande d'Intervention form
+    } else if(formType === 'acquisition') {
+        window.location.href = 'demande_acquisition.html'; // The file name of your Demande d'Acquisition form
+    } else {
+        alert('Type de formulaire non reconnu!');
+    }
+}
+</script>
+</html>

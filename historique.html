@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <style>
+
+           #mainbutton {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+}
+ 
+   
+        
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    color: #333;
+}
+
+#formList {
+    margin-top: 20px;
+}
+
+.form-entry {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.form-type {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.form-date {
+    color: #666;
+}
+
+    </style>
+<meta charset="UTF-8">
+<title>Historique des Formulaires</title>
+
+</head>
+<body>
+
+
+    <h1>Historique des Formulaires</h1>
+
+    <div id="formList">
+        <!-- Form entries will be dynamically added here -->
+    </div>
+    
+    <button id="mainbutton" onclick="goToMainPage()">Page Principale</button>
+
+
+</body>
+<script>
+    function goToMainPage() {
+    window.location.href = 'main.html'; // Replace 'index.html' with the actual filename of your main page
+}
+    // Sample form data (replace with actual data from your database)
+var formData = [
+    { type: 'Demande d\'Intervention', date: '2024-04-15' },
+    { type: 'Demande d\'Acquisition', date: '2024-04-14' },
+    // Add more form data as needed
+];
+
+// Function to populate the form list
+function populateFormList() {
+    var formListDiv = document.getElementById('formList');
+    formListDiv.innerHTML = ''; // Clear existing content
+
+    formData.forEach(function(form) {
+        var formEntry = document.createElement('div');
+        formEntry.classList.add('form-entry');
+        formEntry.innerHTML = '<span class="form-type">' + form.type + '</span>' +
+                              '<span class="form-date">' + form.date + '</span>';
+        formListDiv.appendChild(formEntry);
+    });
+
+
+}
+
+// Call the function to populate the list when the page loads
+window.onload = populateFormList;
+
+</script>
+</html>
